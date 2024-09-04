@@ -1,0 +1,17 @@
+2024-09-03 21:39:00.603 | INFO     | __main__:main:6 - running the application...
+2024-09-03 21:39:00.604 | INFO     | model_service:load_model:20 - checking the existence of model cinfig file at models\rf_v1
+2024-09-03 21:39:00.604 | WARNING  | model_service:load_model:23 - model at models\rf_v1 not found -> building rf_v1
+2024-09-03 21:39:00.604 | INFO     | model:build_model:10 - starting up model building pipeline
+2024-09-03 21:39:00.605 | INFO     | preparation:prepare_data:7 - starting up preprocessing pipeline
+2024-09-03 21:39:00.605 | INFO     | collection:load_data:6 - loading csv file at path rent_apartments.csv
+2024-09-03 21:39:00.613 | INFO     | preparation:encode_cat_cols:18 - encoding categorical columns: ['balcony', 'storage', 'parking', 'furnished', 'garage']
+2024-09-03 21:39:00.905 | INFO     | model:get_X_y:27 - defining X and y variables.
+X vars: ['area', 'constraction_year', 'bedrooms', 'garden', 'balcony_yes', 'parking_yes', 'furnished_yes', 'garage_yes', 'storage_yes']
+y var: rent
+2024-09-03 21:39:00.906 | INFO     | model:split_train_test:31 - splitting data into train and test sets
+2024-09-03 21:39:00.906 | INFO     | model:train_model:36 - training a model with hyperparameters
+2024-09-03 21:39:18.323 | INFO     | model:evaluate_model:52 - evaluating model performance. SCORE=0.8207405832082105
+2024-09-03 21:39:18.323 | INFO     | model:save_model:57 - saving a model to directory: models/rf_v1
+2024-09-03 21:39:18.343 | INFO     | model_service:load_model:26 - model rf_v1 exists! -> loading model configuration file
+2024-09-03 21:39:18.369 | INFO     | model_service:predict:30 - making a prediction!
+2024-09-03 21:39:18.378 | INFO     | __main__:main:10 - prediction = [2009.75289418]
