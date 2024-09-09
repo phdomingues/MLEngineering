@@ -1,12 +1,12 @@
 import pandas as pd
 import re
-from collection import load_data
+from collection import load_data_from_db
 from loguru import logger
 
 def prepare_data():
     logger.info("starting up preprocessing pipeline")
     # 1. Load Dataset
-    data = load_data()
+    data = load_data_from_db()
     # 2. Encode Categorical Columns
     data_encoded = encode_cat_cols(data)
     # 3. Parse garden column

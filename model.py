@@ -38,6 +38,7 @@ def train_model(X_train, y_train):
     grid_space = {
         'n_estimators': [100, 200, 300],
         'max_depth': [3, 6, 9, 12]}
+    logger.debug(f"grid space = {grid_space}")
     grid = GridSearchCV(RandomForestRegressor(), 
                         param_grid=grid_space, 
                         cv=5, 

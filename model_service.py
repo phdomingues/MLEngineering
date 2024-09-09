@@ -17,7 +17,7 @@ class ModelService:
 
     def load_model(self):
         model_path = Path(f'{settings.model_path}/{settings.model_name}')
-        logger.info(f"checking the existence of model cinfig file at {model_path}")
+        logger.info(f"checking the existence of model config file at {model_path}")
 
         if not model_path.exists():
             logger.warning(f"model at {model_path} not found -> building {settings.model_name}")
