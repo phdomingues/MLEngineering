@@ -1,0 +1,9 @@
+# File patterns
+**/*.log
+**/*.zip
+
+# Directories
+__pycache__
+
+# Specific directory contents
+/src/model/models/*
