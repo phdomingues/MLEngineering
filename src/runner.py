@@ -4,7 +4,7 @@ Main application script for running the ML model service.
 This script initializes the ModelService, loads the ML model, makes
 a prediction based on predefined input parameters, and logs the output.
 It demonstrates a typical workflow of using the ModelService in
-a practical application context. 
+a practical application context.
 """
 
 from loguru import logger

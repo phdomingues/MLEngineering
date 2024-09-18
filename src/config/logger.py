@@ -33,8 +33,6 @@ def configure_logging(log_level: str) -> None:
 
     Args:
         log_level (str): The log level to be set for the logger.
-    Returns:
-        None
     """
     logger.remove()
     logger.add(
@@ -42,7 +40,8 @@ def configure_logging(log_level: str) -> None:
         rotation='1 day',
         retention='2 days',
         compression='zip',
-        level=log_level)
+        level=log_level,
+    )
 
 
 # Configuring logging

@@ -16,7 +16,8 @@ from config import db_settings
 
 class Base(DeclarativeBase):
     """Base class for SQLAlchemy models."""
-    pass
+
+    pass  # noqa: WPS420, WPS604
 
 
 class RentApartments(Base):
@@ -42,6 +43,7 @@ class RentApartments(Base):
         neighborhood (str): Neighborhood where the apartment is located.
         rent (int): Monthly rent price.
     """
+
     __tablename__ = db_settings.rent_apart_table_name
 
     address: Mapped[str] = mapped_column(VARCHAR(), primary_key=True)

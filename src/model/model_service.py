@@ -34,14 +34,11 @@ class ModelService:
     """
 
     def __init__(self) -> None:
-        """Initializes the ModelService with no models loaded."""
+        """Initialize the ModelService with no models loaded."""
         self.model = None
 
     def load_model(self) -> None:
-        """
-        Loads the model from a specified path, or builds it
-        if it doesn't exist.
-        """
+        """Load the model from a specified path or builds it necessary."""
         model_path = Path(
             f'{model_settings.model_path}/{model_settings.model_name}',
         )
@@ -62,11 +59,11 @@ class ModelService:
             f'loading model configuration file',
         )
 
-        with model_path.open('rb') as file:
-            self.model = pk.load(file)
+        with model_path.open('rb') as model_file:
+            self.model = pk.load(model_file)
 
     def predict(self, input_parameters: list) -> list:
-        """Makes a prediction using the loaded model.
+        """Make a prediction using the loaded model.
 
         Takes input parameters and passes it to the model, which
         was loaded using a pickle file.

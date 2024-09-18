@@ -29,12 +29,12 @@ def prepare_data() -> pd.DataFrame:
     return _parse_garden_col(data_encoded)
 
 
-def _encode_cat_cols(data: pd.DataFrame) -> pd.DataFrame:
+def _encode_cat_cols(dataframe: pd.DataFrame) -> pd.DataFrame:
     """
     Encode categorical columns into dummy variables.
 
     Args:
-        data (pd.DataFrame): The original dataset.
+        dataframe (pd.DataFrame): The original dataset.
 
     Returns:
         pd.DataFrame: Dataset with categorical columns encoded.
@@ -42,7 +42,7 @@ def _encode_cat_cols(data: pd.DataFrame) -> pd.DataFrame:
     cols = ['balcony', 'storage', 'parking', 'furnished', 'garage']
     logger.info(f'encoding categorical columns: {cols}')
     return pd.get_dummies(
-        data,
+        dataframe,
         columns=cols,
         drop_first=True,
     )

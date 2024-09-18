@@ -12,7 +12,7 @@ from pathlib import Path
 import pandas as pd
 from loguru import logger
 from sklearn.ensemble import RandomForestRegressor
-from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.model_selection import GridSearchCV, train_test_split
 
 from config import model_settings
 from model.pipeline.preparation import prepare_data
@@ -53,7 +53,7 @@ def build_model() -> None:
 
 
 def _get_x_y(
-    data: pd.DataFrame,
+    dataframe: pd.DataFrame,
     col_x: list[str],
     col_y: str,
 ) -> tuple[pd.DataFrame, pd.Series]:
@@ -61,7 +61,7 @@ def _get_x_y(
     Split the dataframe into features and target variable.
 
     Args:
-        data (pd.DataFrame): The dataset to be split.
+        dataframe (pd.DataFrame): The dataset to be split.
         col_x (list[str]): List of columns names for features.
         col_y (str): Name of the target variable column.
 
@@ -70,9 +70,9 @@ def _get_x_y(
     """
     logger.info(
         f'defining X and y variables. '
-        f'X vars: {col_x}; y var: {col_y}'
+        f'X vars: {col_x}; y var: {col_y}',
     )
-    return data[col_x].values, data[col_y].values
+    return dataframe[col_x].values, dataframe[col_y].values
 
 
 def _split_train_test(
@@ -93,7 +93,7 @@ def _split_train_test(
     return train_test_split(
         features,
         target,
-        test_size=0.2,
+        test_size=0.2,  # noqa: WPS432
     )
 
 
@@ -115,7 +115,7 @@ def _train_model(
 
     grid_space = {
         'n_estimators': [100, 200, 300],
-        'max_depth': [3, 6, 9, 12]
+        'max_depth': [3, 6, 9, 12],
     }
 
     logger.debug(f'grid space = {grid_space}')
@@ -168,5 +168,5 @@ def _save_model(model: RandomForestRegressor) -> None:
         f'{model_settings.model_path}/{model_settings.model_name}',
     )
     logger.info(f"saving a model to directory: {model_path}")
-    with model_path.open('wb') as file:
-        pk.dump(model, file)
+    with model_path.open('wb') as model_file:
+        pk.dump(model, model_file)
