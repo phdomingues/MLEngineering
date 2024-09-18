@@ -2,11 +2,11 @@
 name = "mlengineering"
 version = "0.1.0"
 description = ""
-authors = ["Your Name <you@example.com>"]
+authors = ["Pedro Domingues <12pedro07@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "^3.10"
 scikit-learn = "^1.5.1"
 pandas = "^2.2.2"
 pydantic-settings = "^2.4.0"
