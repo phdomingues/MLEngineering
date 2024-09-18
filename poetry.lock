@@ -572,7 +572,11 @@ files = [
 ]
 
 [package.dependencies]
-numpy = {version = ">=1.26.0", markers = "python_version >= \"3.12\""}
+numpy = [
+    {version = ">=1.22.4", markers = "python_version < \"3.11\""},
+    {version = ">=1.23.2", markers = "python_version == \"3.11\""},
+    {version = ">=1.26.0", markers = "python_version >= \"3.12\""},
+]
 python-dateutil = ">=2.8.2"
 pytz = ">=2020.1"
 tzdata = ">=2022.7"
@@ -653,8 +657,8 @@ files = [
 annotated-types = ">=0.4.0"
 pydantic-core = "2.20.1"
 typing-extensions = [
-    {version = ">=4.12.2", markers = "python_version >= \"3.13\""},
     {version = ">=4.6.1", markers = "python_version < \"3.13\""},
+    {version = ">=4.12.2", markers = "python_version >= \"3.13\""},
 ]
 
 [package.extras]
@@ -1275,5 +1279,5 @@ dev = ["black (>=19.3b0)", "pytest (>=4.6.2)"]
 
 [metadata]
 lock-version = "2.0"
-python-versions = "^3.12"
-content-hash = "ddf045bef6722a1c07a49927326c49bb3ea8bd757f779042f14e43873c154e08"
+python-versions = "^3.10"
+content-hash = "18eb84958ade8eca7e3749fe91f7005011bfcc2d4a48911a562a67f681357c61"
