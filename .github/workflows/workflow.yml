@@ -15,23 +15,23 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
-  
-  steps:
-  - name: Checkout repository
-    uses: actions/checkout@v4
-    
-  - name: Set up python 3.12
-    uses: actions/setup-python@v5
-    with:
-      python-version: '3.12'
 
-  - name: Install poetry
-    run: |
-      curl -sSL https://install.python-poetry.org | python3 -
-      export PATH=$HOME/.local/bin:$PATH
-  
-  - name: Install dependencies using poetry
-    run: poetry run make install
-  
-  - name: Lint with flake8
-    run: poetry run make check
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up python 3.12
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+
+    - name: Install poetry
+      run: |
+        curl -sSL https://install.python-poetry.org | python3 -
+        export PATH=$HOME/.local/bin:$PATH
+
+    - name: Install dependencies using poetry
+      run: poetry run make install
+
+    - name: Lint with flake8
+      run: poetry run make check
