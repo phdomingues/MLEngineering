@@ -1,6 +1,7 @@
 
 
 name: Build Application
+description: Builds the application, install dependencies and uses cache if possible
 
 runs:
   using: composite
